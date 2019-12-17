@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, jsonify, request
 import json
 
 #Init server
@@ -9,7 +9,7 @@ def add(x,y):
     return x + y
 
 def subtract(x,y):
-    #Subtract function
+    #Sustract function
     return x - y
 
 def multiply(x,y):
@@ -25,11 +25,16 @@ def divide(x,y):
 
 @app.route('/', methods=['GET','POST'])
 def calculator():
+    #Get request
     data = request.get_json()
     value_1 = int(data["value1"])
     operator = data["operation"]
     value_2 = int(data["value2"])
     
+    #print(value_1)
+    #print(operator)
+    #print(value_2)
+
     #Choose operation
     if(operator == '+'):
         result = add(value_1,value_2)
@@ -41,9 +46,12 @@ def calculator():
         result = divide(value_1,value_2)
     else:
         result = 'INVALID CHOICE'
-   
-    #Return result
-    return result
+    
+    #Add result to json
+    data["result"] = result
+
+    #Return values, operation and result
+    return data
 
 if __name__ == '__main__':
     #Run server in port 5000

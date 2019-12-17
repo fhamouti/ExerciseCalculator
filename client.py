@@ -14,9 +14,24 @@ with open('sample.csv') as f:
     for row in csv.DictReader(f,fieldnames):
         data.append(row)
 
-#Get data 
-json_data = json.dumps(data, indent=4)
+#Get data into json string
+json_str = json.dumps(data, indent=4)
 
-#Send POST
-res = requests.post('http://localhost:5000/', json=json_data)
+#Convert json string into json list
+json_list = json.loads(json_str)
 
+#Open file to write logs and append to actual info
+logs = open("operation_logs.txt", "a")
+
+for element in json_list:
+    #print(element)
+    res = requests.post('http://localhost:5000/', json=element)
+
+    #Show response from server
+    print(res.text)
+    
+    #Write response in a file
+    logs.write(res.text+'\n')
+
+#Close file after finishing writing
+logs.close()
