@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import json
 
 #Init server
@@ -25,10 +25,10 @@ def divide(x,y):
 
 @app.route('/', methods=['GET','POST'])
 def calculator():
-   
-    value_1 = 2
-    operator = 'x'
-    value_2 = 2
+    data = request.get_json()
+    value_1 = int(data["value1"])
+    operator = data["operation"]
+    value_2 = int(data["value2"])
     
     #Choose operation
     if(operator == '+'):
