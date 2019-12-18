@@ -15,16 +15,16 @@ pip install -r requirements.txt
 ```
 ## Running
 First step is to execute *app.py* file
-´´´
+```
 python app.py
-´´´
+```
 Then, the server will be listening and you will execute *client.py* to send POST requests 
-´´´
+```
 python client.py
-´´´
+```
 And it will give an output like 
 
-![Output](/images/output.png)
+(/images/output.PNG)
 
 And also a text file with all the logs.
 
