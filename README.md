@@ -24,7 +24,7 @@ python client.py
 ```
 And it will give an output like 
 
-(/images/output.PNG)
+![Output](/images/output.PNG)
 
 And also a text file with all the logs.
 
