@@ -28,7 +28,14 @@ And it will give an output like
 
 And also a text file with all the logs.
 
+## Test
+You can also test *app.py* using the file unittest_app.py, that performs an unit testing to this file.
 
+```
+python unittest_app.py
+```
+
+![Output](/images/testing.PNG)
 ## Technologies
 * Python 3.8.0
 * Flask 1.1.1
