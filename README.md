@@ -40,4 +40,4 @@ python unittest_app.py
 * Python 3.8.0
 * Flask 1.1.1
 
-by @fhamouti
+by [@fhamouti](https://github.com/fhamouti)
